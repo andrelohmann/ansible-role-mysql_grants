@@ -3,6 +3,7 @@
   become: true
   become_user: root
   vars:
+    percona_mysql_root_password: SOMELONGPASSWORD
     mysql_grants_databases:
     - name: mytest
       encoding: utf8
