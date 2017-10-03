@@ -15,5 +15,6 @@
       state: present
 
   roles:
+  - andrelohmann.percona_mysql
   - ansible-role-mysql_grants
 ...
