@@ -1,0 +1,35 @@
+---
+
+- name: Install python mysqldb
+  apt:
+  pkg: "{{ item }}"
+  state: latest
+  with_items:
+  - python-mysqldb
+
+- name: create .my.cnf
+  template:
+    src: my.cnf.j2
+    dest: ~/.my.cnf
+    mode: 0600
+  when: mysql_grants_deployment_user is defined and mysql_grants_deployment_password is defined
+
+- name: create all databases
+  mysql_db:
+    collation: "{{item.collation|default(omit)}}"
+    encoding: "{{item.encoding|default(omit)}}"
+    name: "{{item.name|default(omit)}}"
+    state: "{{item.state|default(omit)}}"
+  with_items: "{{ mysql_grants_databases }}"
+
+- name: create all users
+  mysql_user:
+    host: {{item.host|default(omit)}}
+    host_all: {{item.host_all|default(omit)}}
+    name: {{item.name|default(omit)}}
+    password: {{item.password|default(omit)}}
+    priv: {{item.priv|default(omit)}}
+    state: {{item.state|default(omit)}}
+  with_items: "{{ mysql_grants_users }}"
+
+...

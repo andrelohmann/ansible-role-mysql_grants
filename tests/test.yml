@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  become: true
+  become_user: root
+  vars:
+    mysql_grants_databases:
+    - name: mytest
+      encoding: utf8
+    mysql_grants_users:
+    - name: tesuser
+      password: testpassword
+      host: localhost
+      priv: 'mytest.*:ALL'
+      state: present
+
+  roles:
+  - ansible-role-mysql_grants
+...
