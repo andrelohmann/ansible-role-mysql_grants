@@ -33,7 +33,7 @@ Example Playbook
     - hosts: mysql
       become: yes
       roles:
-         - { role: andrelohmann.ansible-role-mysql_grants }
+         - { role: andrelohmann.mysql_grants }
 
 License
 -------

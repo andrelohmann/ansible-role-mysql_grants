@@ -23,7 +23,7 @@ install:
 
 script:
   # install galaxy role
-  #- ansible-galaxy install andrelohmann.percona_mysql
+  - ansible-galaxy install andrelohmann.percona_mysql
   # Basic role syntax check
   - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
   # Run the role/playbook with ansible-playbook.
