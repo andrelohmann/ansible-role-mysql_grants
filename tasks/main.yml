@@ -2,15 +2,16 @@
 
 - name: Install python mysqldb
   apt:
-    pkg: "{{ item }}"
+    pkg: "{{ packages }}"
     state: latest
     dpkg_options: 'force-confnew,force-confdef'
     autoclean: yes
     autoremove: yes
     update_cache: yes
     cache_valid_time: 3600
-  with_items:
-  - python-mysqldb
+  vars:
+    packages:
+    - python-mysqldb
 
 - name: create .my.cnf
   template:
