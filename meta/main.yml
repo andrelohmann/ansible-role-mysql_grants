@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: mysql_grants
   author: andrelohmann
   description: ansible galaxy role to deploy mysql grants
   company: smartformer UG

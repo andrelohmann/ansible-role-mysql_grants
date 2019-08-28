@@ -33,7 +33,7 @@ Example Playbook
     - hosts: mysql
       become: yes
       roles:
-         - { role: andrelohmann.mysql_grants }
+         - andrelohmann.mysql_grants
 
 License
 -------
