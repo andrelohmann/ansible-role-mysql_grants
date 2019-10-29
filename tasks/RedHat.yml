@@ -1,0 +1,9 @@
+---
+- name: install packages
+  yum:
+    name: "{{ packages }}"
+    state: latest
+  vars:
+    packages:
+    - MySQL-python
+...
