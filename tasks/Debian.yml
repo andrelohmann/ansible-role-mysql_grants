@@ -11,6 +11,6 @@
     cache_valid_time: 3600
   vars:
     packages:
-    - python-mysqldb
+    - python3-mysqldb
 
 ...
