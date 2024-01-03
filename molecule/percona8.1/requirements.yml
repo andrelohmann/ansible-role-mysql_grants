@@ -1,0 +1,9 @@
+---
+
+roles:
+- andrelohmann.percona_mysql
+
+collections:
+- community.mysql
+
+...

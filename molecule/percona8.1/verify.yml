@@ -1,0 +1,44 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+
+  - name: mysql restart
+    systemd:
+      name: mysql
+      state: restarted
+
+  - name: Get Service Status
+    ansible.builtin.systemd:
+      name: "mysql.service"
+    register: mysql_service_status
+
+  - name: Dump mysql service
+    ansible.builtin.debug:
+      var: mysql_service_status
+
+  - name: Assert mysql.service is enabled
+    ansible.builtin.assert:
+      that: mysql_service_status.status.ActiveState == "active"
+
+  - name: Run SELECT * FROM mysql.user WHERE User = "testuser";
+    ansible.builtin.shell: mysql -e 'SELECT * FROM mysql.user WHERE User = "testuser";'
+    args:
+      executable: /bin/bash
+    register: mysql_user_status
+
+  - name: Dump mysql_user_status
+    ansible.builtin.debug:
+      var: mysql_user_status
+
+  - name: Assert mysql_user_status to include "localhost", "testuser" and "mysql_native_password"
+    ansible.builtin.assert:
+      that:
+      - "'localhost' in mysql_user_status.stdout"
+      - "'testuser' in mysql_user_status.stdout"
+      - "'mysql_native_password' in mysql_user_status.stdout"
+
+...

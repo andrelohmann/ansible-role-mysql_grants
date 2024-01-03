@@ -1,0 +1,22 @@
+---
+galaxy_info:
+  role_name: mysql_grants
+  author: andrelohmann
+  description: ansible galaxy role to deploy mysql grants
+  company: CloudCourse GmbH
+
+  license: MIT
+
+  min_ansible_version: "2.11"
+
+  platforms:
+  - name: Ubuntu
+    versions:
+    - jammy
+    - focal
+
+  galaxy_tags:
+  - mysql
+
+dependencies: []
+...

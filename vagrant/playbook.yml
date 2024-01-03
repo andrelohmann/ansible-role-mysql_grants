@@ -1,0 +1,25 @@
+---
+- hosts: all
+  become: true
+  become_method: sudo
+
+  vars:
+    # percona_mysql_version: '8'
+    percona_mysql_version: '8.1'
+    percona_mysql_root_password: SOMELONGTESTPASSWORD
+    mysql_grants_databases:
+    - name: mytest
+      encoding: utf8
+    mysql_grants_users:
+    - name: tesuser
+      password: testpassword
+      host: localhost
+      priv: 'mytest.*:ALL'
+      state: present
+
+  roles:
+  - andrelohmann.root_colored_prompt
+  - andrelohmann.percona_mysql
+  - ansible-role-mysql_grants
+
+...
