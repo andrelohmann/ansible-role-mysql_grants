@@ -3,26 +3,17 @@ galaxy_info:
   role_name: mysql_grants
   author: andrelohmann
   description: ansible galaxy role to deploy mysql grants
-  company: smartformer UG
+  company: CloudCourse GmbH
 
   license: MIT
 
-  min_ansible_version: 2.7
+  min_ansible_version: "2.11"
 
   platforms:
-    - name: Debian
-      versions:
-      - stretch
-      - buster
-    - name: Ubuntu
-      versions:
-      - bionic
-      - focal
-    - name: EL
-      versions:
-      - 6
-      - 7
-      - 8
+  - name: Ubuntu
+    versions:
+    - jammy
+    - focal
 
   galaxy_tags:
   - mysql

@@ -1,14 +1,14 @@
 ---
-- hosts: localhost
-  become: true
-  become_method: sudo
+- name: Converge 8.1
+  hosts: all
   vars:
+    percona_mysql_version: '8.1'
     percona_mysql_root_password: SOMELONGPASSWORD
     mysql_grants_databases:
     - name: mytest
       encoding: utf8
     mysql_grants_users:
-    - name: tesuser
+    - name: testuser
       password: testpassword
       host: localhost
       priv: 'mytest.*:ALL'
@@ -16,5 +16,8 @@
 
   roles:
   - andrelohmann.percona_mysql
-  - ansible-role-mysql_grants
+  tasks:
+  - name: "Include andrelohmann.mysql_grants"
+    include_role:
+      name: "andrelohmann.mysql_grants"
 ...

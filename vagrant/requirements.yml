@@ -1,0 +1,10 @@
+---
+
+roles:
+- andrelohmann.root_colored_prompt
+- andrelohmann.percona_mysql
+
+collections:
+- community.mysql
+
+...
