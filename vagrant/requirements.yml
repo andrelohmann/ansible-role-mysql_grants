@@ -1,10 +1,10 @@
 ---
 
 roles:
-- andrelohmann.root_colored_prompt
-- andrelohmann.percona_mysql
+- name: andrelohmann.root_colored_prompt
+- name: andrelohmann.percona_mysql
 
 collections:
-- community.mysql
+- name: community.mysql
 
 ...
