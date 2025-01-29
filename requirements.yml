@@ -1,6 +1,7 @@
 ---
 
-roles: []
+roles:
+- name: andrelohmann.percona_mysql
 
 collections:
 - name: community.mysql
