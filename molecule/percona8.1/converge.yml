@@ -17,7 +17,7 @@
       state: present
 
   roles:
-  - name: andrelohmann.percona_mysql
+  - role: andrelohmann.percona_mysql
   tasks:
   - name: Include andrelohmann.mysql_grants
     ansible.builtin.include_role:
